@@ -1,0 +1,1423 @@
+#!/usr/bin/env python3
+"""
+Builds the standalone single-page HTML dashboard with embedded data.
+Uses exact replacements to avoid python f-string template literal collision.
+"""
+
+import json
+import os
+
+DASHBOARD_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_PATH = os.path.join(DASHBOARD_DIR, "data", "dashboard_data.json")
+OUTPUT_HTML = os.path.join(DASHBOARD_DIR, "index.html")
+
+HTML_TEMPLATE = """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily AI Intelligence Dashboard | 14 Sources</title>
+  <style>
+    :root {
+      --crimson-primary: #990000;
+      --crimson-dark: #6D0808;
+      --crimson-light: #F41C40;
+      --cream-primary: #F8EFE2;
+      --cream-dark: #F5E3CC;
+      --grey-light: #EEEEF0;
+      --grey-dark: #B9C1C6;
+      --iu-black: #072332;
+      
+      --bg-page: #F8EFE2;
+      --bg-surface: #FFFFFF;
+      --text-main: #072332;
+      --text-muted: #4B5563;
+      --border-subtle: #E5E7EB;
+      --shadow-sm: 0 1px 3px rgba(7, 35, 50, 0.08);
+      --shadow-md: 0 4px 6px -1px rgba(7, 35, 50, 0.12), 0 2px 4px -1px rgba(7, 35, 50, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(7, 35, 50, 0.14), 0 4px 6px -2px rgba(7, 35, 50, 0.08);
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header styling */
+    header.dashboard-header {
+      background: linear-gradient(135deg, var(--crimson-dark) 0%, var(--crimson-primary) 100%);
+      color: var(--cream-primary);
+      padding: 1.5rem 2rem;
+      border-bottom: 4px solid var(--cream-dark);
+      box-shadow: var(--shadow-md);
+    }
+
+    .header-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .brand-mark {
+      width: 48px;
+      height: 48px;
+      background: var(--cream-primary);
+      color: var(--crimson-primary);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.4rem;
+      letter-spacing: -0.5px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .brand-title h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-title p {
+      font-size: 0.875rem;
+      color: var(--cream-dark);
+      margin-top: 0.15rem;
+    }
+
+    .header-badges {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.85rem;
+      background: rgba(248, 239, 226, 0.15);
+      border: 1px solid rgba(248, 239, 226, 0.3);
+      color: var(--cream-primary);
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      backdrop-filter: blur(4px);
+    }
+
+    .badge-pill.status-live {
+      background: rgba(244, 28, 64, 0.25);
+      border-color: var(--crimson-light);
+      color: #FFFFFF;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #22C55E;
+      box-shadow: 0 0 8px #22C55E;
+    }
+
+    /* Main Container */
+    main.dashboard-container {
+      max-width: 1400px;
+      width: 100%;
+      margin: 1.5rem auto;
+      padding: 0 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    /* Executive Brief Card */
+    .executive-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--cream-dark);
+      border-left: 6px solid var(--crimson-primary);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .executive-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.75rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .executive-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--crimson-primary);
+      background: var(--cream-primary);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      margin-bottom: 0.35rem;
+    }
+
+    .executive-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--iu-black);
+      line-height: 1.35;
+    }
+
+    .executive-body {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .executive-meta-row {
+      display: flex;
+      gap: 1.25rem;
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--grey-light);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+
+    /* Controls Bar */
+    .controls-panel {
+      background: var(--bg-surface);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      border: 1px solid rgba(7, 35, 50, 0.08);
+    }
+
+    .controls-top-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .archive-picker-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .archive-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    select.custom-select {
+      padding: 0.5rem 0.85rem;
+      border: 1px solid var(--grey-dark);
+      border-radius: var(--radius-sm);
+      background-color: #FFFFFF;
+      color: var(--text-main);
+      font-size: 0.875rem;
+      font-weight: 500;
+      outline: none;
+      cursor: pointer;
+      transition: border-color 0.15s;
+    }
+
+    select.custom-select:focus {
+      border-color: var(--crimson-primary);
+      box-shadow: 0 0 0 2px rgba(153, 0, 0, 0.15);
+    }
+
+    .search-box-group {
+      flex: 1;
+      min-width: 260px;
+      max-width: 450px;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.5rem 2.2rem 0.5rem 0.9rem;
+      border: 1px solid var(--grey-dark);
+      border-radius: var(--radius-sm);
+      font-size: 0.875rem;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .search-input:focus {
+      border-color: var(--crimson-primary);
+      box-shadow: 0 0 0 2px rgba(153, 0, 0, 0.15);
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--grey-dark);
+      pointer-events: none;
+    }
+
+    .action-buttons-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 0.9rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      border: 1px solid transparent;
+      outline: none;
+    }
+
+    .btn-crimson {
+      background: var(--crimson-primary);
+      color: #FFFFFF;
+    }
+
+    .btn-crimson:hover {
+      background: var(--crimson-dark);
+    }
+
+    .btn-secondary {
+      background: var(--grey-light);
+      color: var(--iu-black);
+      border-color: var(--border-subtle);
+    }
+
+    .btn-secondary:hover {
+      background: var(--cream-dark);
+    }
+
+    .view-toggle {
+      display: inline-flex;
+      background: var(--grey-light);
+      padding: 0.2rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .toggle-btn {
+      padding: 0.35rem 0.75rem;
+      border: none;
+      background: transparent;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .toggle-btn.active {
+      background: var(--bg-surface);
+      color: var(--crimson-primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Sector Tabs */
+    .sector-tabs {
+      display: flex;
+      gap: 0.5rem;
+      border-top: 1px solid var(--grey-light);
+      padding-top: 0.75rem;
+      overflow-x: auto;
+    }
+
+    .sector-tab {
+      padding: 0.45rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1px solid transparent;
+      border-radius: var(--radius-sm);
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s;
+    }
+
+    .sector-tab:hover {
+      color: var(--crimson-primary);
+      background: var(--cream-primary);
+    }
+
+    .sector-tab.active {
+      background: var(--cream-primary);
+      color: var(--crimson-primary);
+      border-color: var(--cream-dark);
+    }
+
+    .tab-count {
+      display: inline-block;
+      margin-left: 0.35rem;
+      padding: 0.1rem 0.45rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      background: rgba(7, 35, 50, 0.08);
+    }
+
+    .sector-tab.active .tab-count {
+      background: var(--crimson-primary);
+      color: #FFFFFF;
+    }
+
+    /* Stories Grid / Cards Layout */
+    .stories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 640px) {
+      .stories-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .story-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.15s, box-shadow 0.15s;
+      position: relative;
+    }
+
+    .story-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--grey-dark);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      gap: 0.5rem;
+    }
+
+    .source-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .source-name {
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--crimson-primary);
+    }
+
+    .access-tag {
+      font-size: 0.7rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      background: var(--grey-light);
+      color: var(--text-muted);
+    }
+
+    .sector-badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .sector-business {
+      background: rgba(153, 0, 0, 0.1);
+      color: var(--crimson-primary);
+    }
+
+    .sector-highered {
+      background: rgba(7, 35, 50, 0.1);
+      color: var(--iu-black);
+    }
+
+    .sector-cross {
+      background: rgba(244, 28, 64, 0.12);
+      color: var(--crimson-light);
+    }
+
+    .story-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 0.75rem;
+      color: var(--iu-black);
+    }
+
+    .story-title a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .story-title a:hover {
+      color: var(--crimson-primary);
+      text-decoration: underline;
+    }
+
+    .takeaways-list {
+      list-style: none;
+      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .takeaways-list li {
+      position: relative;
+      padding-left: 1.15rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .takeaways-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--crimson-primary);
+      font-weight: bold;
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--grey-light);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      gap: 0.5rem;
+    }
+
+    .card-tags {
+      display: flex;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+    }
+
+    .tag-chip {
+      background: var(--grey-light);
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      color: var(--iu-black);
+    }
+
+    .card-meta-right {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+    }
+
+    /* Table View Styling */
+    .table-container {
+      background: var(--bg-surface);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-subtle);
+      overflow-x: auto;
+      display: none;
+    }
+
+    table.dashboard-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.875rem;
+    }
+
+    table.dashboard-table th {
+      background: var(--cream-primary);
+      color: var(--iu-black);
+      font-weight: 700;
+      padding: 0.75rem 1rem;
+      border-bottom: 2px solid var(--cream-dark);
+      white-space: nowrap;
+    }
+
+    table.dashboard-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--grey-light);
+      vertical-align: top;
+    }
+
+    table.dashboard-table tr:hover {
+      background-color: rgba(248, 239, 226, 0.4);
+    }
+
+    .table-story-title {
+      font-weight: 700;
+      color: var(--iu-black);
+      margin-bottom: 0.35rem;
+    }
+
+    .table-story-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .table-story-title a:hover {
+      color: var(--crimson-primary);
+      text-decoration: underline;
+    }
+
+    .table-bullets {
+      list-style-type: disc;
+      padding-left: 1.1rem;
+      color: var(--text-muted);
+      font-size: 0.825rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    /* Modal Styling */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(7, 35, 50, 0.6);
+      backdrop-filter: blur(2px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-box {
+      background: #FFFFFF;
+      border-radius: var(--radius-lg);
+      max-width: 750px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+      border-top: 6px solid var(--crimson-primary);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-header {
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--grey-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-header h3 {
+      font-size: 1.25rem;
+      color: var(--iu-black);
+    }
+
+    .modal-close-btn {
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .modal-body {
+      padding: 1.5rem;
+      flex: 1;
+    }
+
+    .export-preview {
+      width: 100%;
+      height: 250px;
+      padding: 0.75rem;
+      font-family: monospace;
+      font-size: 0.8rem;
+      background: var(--grey-light);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      resize: vertical;
+      margin: 1rem 0;
+    }
+
+    .source-list-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+    }
+
+    .source-list-table th, .source-list-table td {
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid var(--grey-light);
+      text-align: left;
+    }
+
+    .source-list-table th {
+      background: var(--cream-primary);
+      color: var(--iu-black);
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--iu-black);
+      color: var(--cream-primary);
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-lg);
+      font-size: 0.875rem;
+      font-weight: 500;
+      opacity: 0;
+      transform: translateY(1rem);
+      transition: all 0.25s ease;
+      z-index: 1100;
+      pointer-events: none;
+      border-left: 4px solid var(--crimson-light);
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    footer.dashboard-footer {
+      background: var(--iu-black);
+      color: var(--cream-dark);
+      padding: 1.5rem 2rem;
+      font-size: 0.8rem;
+      text-align: center;
+      margin-top: auto;
+    }
+
+    footer a {
+      color: var(--cream-primary);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="dashboard-header">
+    <div class="header-content">
+      <div class="brand-group">
+        <div class="brand-mark">AI</div>
+        <div class="brand-title">
+          <h1>Daily AI Intelligence Dashboard</h1>
+          <p>Curated 14-Source Synthesis across Enterprise, Higher Education & Cross-Sector</p>
+        </div>
+      </div>
+      <div class="header-badges">
+        <div class="badge-pill status-live">
+          <span class="pulse-dot"></span>
+          <span>Daily 7:00 AM Active</span>
+        </div>
+        <div class="badge-pill">
+          <span>📚 14 Sources</span>
+        </div>
+        <div class="badge-pill">
+          <span>🗄️ 5-Day Archive Active</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="dashboard-container">
+
+    <!-- Executive Brief Box -->
+    <section class="executive-card" id="executiveCard">
+      <div class="executive-header">
+        <div>
+          <span class="executive-tag" id="executiveDateTag">Daily Brief</span>
+          <h2 class="executive-title" id="executiveHeadline">Loading daily intelligence...</h2>
+        </div>
+      </div>
+      <p class="executive-body" id="executiveSummaryText">
+        Loading summary...
+      </p>
+      <div class="executive-meta-row">
+        <span id="metricSources">📊 Sources Reported: <strong>14 / 14</strong></span>
+        <span id="metricHighImpact">🔥 High-Impact Items: <strong>6</strong></span>
+        <span id="metricTheme">🎯 Key Trend: <strong>AI Architecture & Workflow Governance</strong></span>
+      </div>
+    </section>
+
+    <!-- Controls & Filters -->
+    <section class="controls-panel">
+      <div class="controls-top-row">
+        <div class="archive-picker-group">
+          <label for="pullSelect" class="archive-label">Daily Briefing:</label>
+          <select id="pullSelect" class="custom-select">
+            <!-- Dynamically populated by JS -->
+          </select>
+        </div>
+
+        <div class="search-box-group">
+          <input type="text" id="searchInput" class="search-input" placeholder="Search keywords, topics, sources, or tags...">
+          <span class="search-icon">🔍</span>
+        </div>
+
+        <div class="action-buttons-group">
+          <div class="view-toggle">
+            <button class="toggle-btn active" id="btnViewCards" title="Card Grid View">Cards</button>
+            <button class="toggle-btn" id="btnViewTable" title="Structured Table View">Table</button>
+          </div>
+          <button class="btn btn-crimson" id="btnCopyDigest" title="Copy formatted markdown digest">
+            📋 Copy Digest
+          </button>
+          <button class="btn btn-secondary" id="btnOpenExport" title="Export data options">
+            📥 Export
+          </button>
+          <button class="btn btn-secondary" id="btnSourcesModal" title="View tracked source directory">
+            ⚙️ Sources (14)
+          </button>
+        </div>
+      </div>
+
+      <!-- Sector Tabs -->
+      <div class="sector-tabs">
+        <button class="sector-tab active" data-sector="ALL">
+          All Sectors <span class="tab-count" id="countAll">14</span>
+        </button>
+        <button class="sector-tab" data-sector="Business and enterprise">
+          Business & Enterprise <span class="tab-count" id="countBusiness">8</span>
+        </button>
+        <button class="sector-tab" data-sector="Higher education">
+          Higher Education <span class="tab-count" id="countHigherEd">5</span>
+        </button>
+        <button class="sector-tab" data-sector="Cross-sector">
+          Cross-Sector <span class="tab-count" id="countCross">1</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Content Views -->
+    <section id="cardsContainer" class="stories-grid">
+      <!-- Dynamic story cards will be injected here -->
+    </section>
+
+    <section id="tableContainer" class="table-container">
+      <table class="dashboard-table">
+        <thead>
+          <tr>
+            <th style="width: 140px;">Sector</th>
+            <th style="width: 180px;">Source</th>
+            <th>Story Headline & Takeaway Bullets</th>
+            <th style="width: 150px;">Topic Tags</th>
+            <th style="width: 90px; text-align: center;">Link</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <!-- Dynamic table rows injected here -->
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <!-- Sources Directory Modal -->
+  <div class="modal-overlay" id="sourcesModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>14 Configured Tracking Sources</h3>
+        <button class="modal-close-btn" id="btnCloseSources">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+          The system pulls public and free sources directly from the web and RSS feeds, and automatically peruses your Gmail inbox for newsletters requiring subscription delivery.
+        </p>
+        <table class="source-list-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Source Name</th>
+              <th>Sector</th>
+              <th>Access Pipeline</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+          <tbody id="sourcesTableBody">
+            <!-- Injected via JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Export Modal -->
+  <div class="modal-overlay" id="exportModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>Export Daily Briefing</h3>
+        <button class="modal-close-btn" id="btnCloseExport">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.85rem; color: var(--text-muted);">
+          Select an export format below to copy to clipboard or download as a standalone document.
+        </p>
+        <div style="display: flex; gap: 0.5rem; margin: 1rem 0;">
+          <button class="btn btn-secondary active" id="btnExportMarkdown">Markdown Digest (.md)</button>
+          <button class="btn btn-secondary" id="btnExportCSV">Spreadsheet (.csv)</button>
+          <button class="btn btn-secondary" id="btnExportJSON">Raw Data (.json)</button>
+        </div>
+        <textarea id="exportPreviewText" class="export-preview" readonly></textarea>
+        <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
+          <button class="btn btn-secondary" id="btnCopyExportText">Copy to Clipboard</button>
+          <button class="btn btn-crimson" id="btnDownloadExportFile">Download File</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toastMessage">Digest copied to clipboard!</div>
+
+  <!-- Footer -->
+  <footer class="dashboard-footer">
+    <p>Daily AI Intelligence Dashboard &bull; Crimson (#990000) & Cream (#F8EFE2) Executive Theme</p>
+    <p style="margin-top: 0.35rem; font-size: 0.75rem; color: var(--grey-dark);">
+      Automated daily refresh at 07:00 AM EDT. Retains current pull + rolling 5-day history.
+    </p>
+  </footer>
+
+  <!-- Application Logic & Embedded Data -->
+  <script>
+    /* DATA_PLACEHOLDER */
+
+    (function() {
+      const state = {
+        activePullKey: 'latest',
+        activeSector: 'ALL',
+        searchQuery: '',
+        activeView: 'cards',
+        exportFormat: 'md'
+      };
+
+      // DOM Elements
+      const pullSelect = document.getElementById('pullSelect');
+      const searchInput = document.getElementById('searchInput');
+      const btnViewCards = document.getElementById('btnViewCards');
+      const btnViewTable = document.getElementById('btnViewTable');
+      const cardsContainer = document.getElementById('cardsContainer');
+      const tableContainer = document.getElementById('tableContainer');
+      const tableBody = document.getElementById('tableBody');
+      const sectorTabs = document.querySelectorAll('.sector-tab');
+      
+      const executiveCard = document.getElementById('executiveCard');
+      const executiveDateTag = document.getElementById('executiveDateTag');
+      const executiveHeadline = document.getElementById('executiveHeadline');
+      const executiveSummaryText = document.getElementById('executiveSummaryText');
+      const metricSources = document.getElementById('metricSources');
+      const metricHighImpact = document.getElementById('metricHighImpact');
+      const metricTheme = document.getElementById('metricTheme');
+
+      const btnCopyDigest = document.getElementById('btnCopyDigest');
+      const btnOpenExport = document.getElementById('btnOpenExport');
+      const btnSourcesModal = document.getElementById('btnSourcesModal');
+      const sourcesModal = document.getElementById('sourcesModal');
+      const btnCloseSources = document.getElementById('btnCloseSources');
+      const exportModal = document.getElementById('exportModal');
+      const btnCloseExport = document.getElementById('btnCloseExport');
+      const toastMessage = document.getElementById('toastMessage');
+
+      const exportPreviewText = document.getElementById('exportPreviewText');
+      const btnExportMarkdown = document.getElementById('btnExportMarkdown');
+      const btnExportCSV = document.getElementById('btnExportCSV');
+      const btnExportJSON = document.getElementById('btnExportJSON');
+      const btnCopyExportText = document.getElementById('btnCopyExportText');
+      const btnDownloadExportFile = document.getElementById('btnDownloadExportFile');
+
+      // Helper to retrieve selected pull object
+      function getActivePull() {
+        if (state.activePullKey === 'latest') {
+          return window.DASHBOARD_DATA.currentPull;
+        }
+        const found = window.DASHBOARD_DATA.archive.find(p => p.date === state.activePullKey);
+        return found || window.DASHBOARD_DATA.currentPull;
+      }
+
+      // Populate Select dynamically
+      function populatePullSelect() {
+        const pull = window.DASHBOARD_DATA.currentPull;
+        const archive = window.DASHBOARD_DATA.archive || [];
+        let html = '<option value="latest">Latest: ' + pull.date + ' (Today)</option>';
+        archive.forEach(item => {
+          html += '<option value="' + item.date + '">Archive: ' + item.date + '</option>';
+        });
+        pullSelect.innerHTML = html;
+        pullSelect.value = state.activePullKey;
+      }
+
+      // Filter stories based on sector and search term
+      function getFilteredStories() {
+        const pull = getActivePull();
+        if (!pull || !pull.stories) return [];
+
+        return pull.stories.filter(story => {
+          const matchesSector = state.activeSector === 'ALL' || story.sector === state.activeSector;
+          if (!matchesSector) return false;
+
+          if (!state.searchQuery) return true;
+          const q = state.searchQuery.toLowerCase();
+          const matchTitle = story.title.toLowerCase().includes(q);
+          const matchSource = story.source.toLowerCase().includes(q);
+          const matchTags = story.tags && story.tags.some(t => t.toLowerCase().includes(q));
+          const matchBullets = story.bullets && story.bullets.some(b => b.toLowerCase().includes(q));
+          return matchTitle || matchSource || matchTags || matchBullets;
+        });
+      }
+
+      // Sector badge class helper
+      function getSectorBadgeClass(sector) {
+        if (sector === 'Business and enterprise') return 'sector-business';
+        if (sector === 'Higher education') return 'sector-highered';
+        return 'sector-cross';
+      }
+
+      // Show toast
+      function showToast(msg) {
+        toastMessage.textContent = msg;
+        toastMessage.classList.add('show');
+        setTimeout(() => {
+          toastMessage.classList.remove('show');
+        }, 2800);
+      }
+
+      // Render Executive Card
+      function renderExecutiveCard() {
+        const pull = getActivePull();
+        if (!pull) return;
+
+        const isLatest = state.activePullKey === 'latest';
+        executiveDateTag.textContent = (isLatest ? 'Current Brief — ' : 'Archived Brief — ') + pull.date;
+        executiveHeadline.textContent = pull.headline;
+        executiveSummaryText.textContent = pull.executiveSummary;
+
+        const totalStories = pull.stories ? pull.stories.length : 0;
+        const highImpact = pull.stories ? pull.stories.filter(s => s.importance === 'High').length : 0;
+
+        metricSources.innerHTML = '📊 Sources Reported: <strong>' + totalStories + ' / 14</strong>';
+        metricHighImpact.innerHTML = '🔥 High-Impact Items: <strong>' + highImpact + '</strong>';
+        metricTheme.innerHTML = '🎯 Focus: <strong>' + (pull.metrics?.primarySector || 'AI Architecture') + '</strong>';
+
+        updateTabCounts(pull);
+      }
+
+      function updateTabCounts(pull) {
+        if (!pull || !pull.stories) return;
+        const allCount = pull.stories.length;
+        const bizCount = pull.stories.filter(s => s.sector === 'Business and enterprise').length;
+        const heCount = pull.stories.filter(s => s.sector === 'Higher education').length;
+        const crossCount = pull.stories.filter(s => s.sector === 'Cross-sector').length;
+
+        document.getElementById('countAll').textContent = allCount;
+        document.getElementById('countBusiness').textContent = bizCount;
+        document.getElementById('countHigherEd').textContent = heCount;
+        document.getElementById('countCross').textContent = crossCount;
+      }
+
+      // Render Cards View
+      function renderCards() {
+        const stories = getFilteredStories();
+        if (stories.length === 0) {
+          cardsContainer.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; padding: 3rem; background: #fff; border-radius: var(--radius-md);">
+              <p style="font-size: 1.1rem; color: var(--text-muted); font-weight: 600;">No stories match your current filters or search term.</p>
+              <button class="btn btn-secondary" style="margin-top: 1rem;" id="btnClearFilters">Reset Filters</button>
+            </div>
+          `;
+          const btnClear = document.getElementById('btnClearFilters');
+          if (btnClear) {
+            btnClear.addEventListener('click', () => {
+              state.searchQuery = '';
+              state.activeSector = 'ALL';
+              searchInput.value = '';
+              sectorTabs.forEach(t => t.classList.toggle('active', t.dataset.sector === 'ALL'));
+              render();
+            });
+          }
+          return;
+        }
+
+        cardsContainer.innerHTML = stories.map(story => `
+          <article class="story-card">
+            <div>
+              <div class="card-top">
+                <div class="source-meta">
+                  <span class="source-name">${story.source}</span>
+                  <span class="access-tag">${story.accessType}</span>
+                </div>
+                <span class="sector-badge ${getSectorBadgeClass(story.sector)}">${story.sector}</span>
+              </div>
+              
+              <h3 class="story-title">
+                <a href="${story.url}" target="_blank" rel="noopener noreferrer">${story.title} ↗</a>
+              </h3>
+
+              <ul class="takeaways-list">
+                ${story.bullets.map(b => `<li>${b}</li>`).join('')}
+              </ul>
+            </div>
+
+            <div class="card-footer">
+              <div class="card-tags">
+                ${story.tags ? story.tags.map(t => `<span class="tag-chip">#${t}</span>`).join('') : ''}
+              </div>
+              <div class="card-meta-right">
+                <span>⏱️ ${story.readTime || '3 min'}</span>
+                ${story.importance === 'High' ? '<span style="color: var(--crimson-primary); font-weight: bold;">★ High Impact</span>' : ''}
+              </div>
+            </div>
+          </article>
+        `).join('');
+      }
+
+      // Render Table View
+      function renderTable() {
+        const stories = getFilteredStories();
+        if (stories.length === 0) {
+          tableBody.innerHTML = `
+            <tr>
+              <td colspan="5" style="text-align: center; padding: 2.5rem; color: var(--text-muted);">
+                No matching stories found.
+              </td>
+            </tr>
+          `;
+          return;
+        }
+
+        tableBody.innerHTML = stories.map(story => `
+          <tr>
+            <td>
+              <span class="sector-badge ${getSectorBadgeClass(story.sector)}">${story.sector}</span>
+            </td>
+            <td>
+              <strong style="color: var(--crimson-primary);">${story.source}</strong><br>
+              <span class="access-tag" style="margin-top: 4px; display: inline-block;">${story.accessType}</span>
+            </td>
+            <td>
+              <div class="table-story-title">
+                <a href="${story.url}" target="_blank" rel="noopener noreferrer">${story.title} ↗</a>
+              </div>
+              <ul class="table-bullets">
+                ${story.bullets.map(b => `<li>${b}</li>`).join('')}
+              </ul>
+            </td>
+            <td>
+              <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                ${story.tags ? story.tags.map(t => `<span class="tag-chip">#${t}</span>`).join('') : ''}
+              </div>
+            </td>
+            <td style="text-align: center;">
+              <a href="${story.url}" target="_blank" class="btn btn-secondary" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;">Visit ↗</a>
+            </td>
+          </tr>
+        `).join('');
+      }
+
+      // Master Render function
+      function render() {
+        renderExecutiveCard();
+        if (state.activeView === 'cards') {
+          cardsContainer.style.display = 'grid';
+          tableContainer.style.display = 'none';
+          renderCards();
+        } else {
+          cardsContainer.style.display = 'none';
+          tableContainer.style.display = 'block';
+          renderTable();
+        }
+      }
+
+      // Populate Sources Table in Modal
+      function populateSourcesTable() {
+        const tbody = document.getElementById('sourcesTableBody');
+        const sources = [];
+        let index = 1;
+        for (const [sector, items] of Object.entries(window.DASHBOARD_DATA.sourceDirectory)) {
+          items.forEach(src => {
+            sources.push(`
+              <tr>
+                <td>${index++}</td>
+                <td><strong>${src.name}</strong></td>
+                <td><span class="sector-badge ${getSectorBadgeClass(sector)}">${sector}</span></td>
+                <td>${src.type}</td>
+                <td><a href="${src.url}" target="_blank" style="color: var(--crimson-primary); text-decoration: underline;">Open ↗</a></td>
+              </tr>
+            `);
+          });
+        }
+        tbody.innerHTML = sources.join('');
+      }
+
+      // Export Builders
+      function buildMarkdownDigest() {
+        const pull = getActivePull();
+        const stories = pull.stories || [];
+
+        let md = '# Daily AI Intelligence Digest — ' + pull.date + '\\n\\n';
+        md += '> **Headline:** ' + pull.headline + '\\n\\n';
+        md += '**Executive Summary:** ' + pull.executiveSummary + '\\n\\n';
+        md += '---\\n\\n';
+
+        const sectors = ['Business and enterprise', 'Higher education', 'Cross-sector'];
+        sectors.forEach(sec => {
+          const secStories = stories.filter(s => s.sector === sec);
+          if (secStories.length === 0) return;
+          md += '## ' + sec + '\\n\\n';
+          secStories.forEach(s => {
+            md += '### [' + s.title + '](' + s.url + ')\\n';
+            md += '* **Source:** ' + s.source + ' (' + s.accessType + ')\\n';
+            s.bullets.forEach(b => {
+              md += '* ' + b + '\\n';
+            });
+            md += '\\n';
+          });
+        });
+        return md;
+      }
+
+      function buildCSVExport() {
+        const pull = getActivePull();
+        const stories = pull.stories || [];
+        const headers = ["Date", "Sector", "Source", "Title", "Bullets", "Tags", "URL"];
+        
+        const rows = stories.map(s => [
+          '"' + pull.date + '"',
+          '"' + s.sector + '"',
+          '"' + s.source + '"',
+          '"' + s.title.replace(/"/g, '""') + '"',
+          '"' + s.bullets.join(' | ').replace(/"/g, '""') + '"',
+          '"' + (s.tags || []).join(', ') + '"',
+          '"' + s.url + '"'
+        ]);
+
+        return [headers.join(','), ...rows.map(r => r.join(','))].join('\\n');
+      }
+
+      function updateExportPreview() {
+        if (state.exportFormat === 'md') {
+          exportPreviewText.value = buildMarkdownDigest();
+        } else if (state.exportFormat === 'csv') {
+          exportPreviewText.value = buildCSVExport();
+        } else if (state.exportFormat === 'json') {
+          exportPreviewText.value = JSON.stringify(getActivePull(), null, 2);
+        }
+      }
+
+      // Event Listeners
+      pullSelect.addEventListener('change', (e) => {
+        state.activePullKey = e.target.value;
+        render();
+      });
+
+      searchInput.addEventListener('input', (e) => {
+        state.searchQuery = e.target.value.trim();
+        render();
+      });
+
+      sectorTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          sectorTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          state.activeSector = tab.dataset.sector;
+          render();
+        });
+      });
+
+      btnViewCards.addEventListener('click', () => {
+        btnViewCards.classList.add('active');
+        btnViewTable.classList.remove('active');
+        state.activeView = 'cards';
+        render();
+      });
+
+      btnViewTable.addEventListener('click', () => {
+        btnViewTable.classList.add('active');
+        btnViewCards.classList.remove('active');
+        state.activeView = 'table';
+        render();
+      });
+
+      btnCopyDigest.addEventListener('click', () => {
+        const text = buildMarkdownDigest();
+        navigator.clipboard.writeText(text).then(() => {
+          showToast('📋 Executive Briefing copied to clipboard!');
+        });
+      });
+
+      btnOpenExport.addEventListener('click', () => {
+        updateExportPreview();
+        exportModal.classList.add('active');
+      });
+
+      btnCloseExport.addEventListener('click', () => {
+        exportModal.classList.remove('active');
+      });
+
+      btnSourcesModal.addEventListener('click', () => {
+        sourcesModal.classList.add('active');
+      });
+
+      btnCloseSources.addEventListener('click', () => {
+        sourcesModal.classList.remove('active');
+      });
+
+      // Export format toggles
+      btnExportMarkdown.addEventListener('click', () => {
+        state.exportFormat = 'md';
+        btnExportMarkdown.classList.add('active');
+        btnExportCSV.classList.remove('active');
+        btnExportJSON.classList.remove('active');
+        updateExportPreview();
+      });
+
+      btnExportCSV.addEventListener('click', () => {
+        state.exportFormat = 'csv';
+        btnExportCSV.classList.add('active');
+        btnExportMarkdown.classList.remove('active');
+        btnExportJSON.classList.remove('active');
+        updateExportPreview();
+      });
+
+      btnExportJSON.addEventListener('click', () => {
+        state.exportFormat = 'json';
+        btnExportJSON.classList.add('active');
+        btnExportMarkdown.classList.remove('active');
+        btnExportCSV.classList.remove('active');
+        updateExportPreview();
+      });
+
+      btnCopyExportText.addEventListener('click', () => {
+        navigator.clipboard.writeText(exportPreviewText.value).then(() => {
+          showToast('Copied export data to clipboard!');
+        });
+      });
+
+      btnDownloadExportFile.addEventListener('click', () => {
+        const content = exportPreviewText.value;
+        let filename = 'ai_intelligence_brief_' + getActivePull().date;
+        let mime = 'text/plain';
+
+        if (state.exportFormat === 'md') {
+          filename += '.md';
+          mime = 'text/markdown';
+        } else if (state.exportFormat === 'csv') {
+          filename += '.csv';
+          mime = 'text/csv';
+        } else if (state.exportFormat === 'json') {
+          filename += '.json';
+          mime = 'application/json';
+        }
+
+        const blob = new Blob([content], { type: mime });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        showToast('Downloaded ' + filename);
+      });
+
+      // Close modal on click outside
+      window.addEventListener('click', (e) => {
+        if (e.target === exportModal) exportModal.classList.remove('active');
+        if (e.target === sourcesModal) sourcesModal.classList.remove('active');
+      });
+
+      // Initialize
+      populatePullSelect();
+      populateSourcesTable();
+      render();
+    })();
+  </script>
+</body>
+</html>
+"""
+
+def generate_html():
+    with open(DATA_PATH, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    
+    json_str = json.dumps(data, ensure_ascii=False)
+    
+    html_content = HTML_TEMPLATE.replace(
+        "/* DATA_PLACEHOLDER */",
+        f"window.DASHBOARD_DATA = {json_str};"
+    )
+    
+    with open(OUTPUT_HTML, "w", encoding="utf-8") as f:
+        f.write(html_content)
+    
+    print(f"Successfully generated standalone HTML dashboard at: {OUTPUT_HTML}")
+
+if __name__ == "__main__":
+    generate_html()
