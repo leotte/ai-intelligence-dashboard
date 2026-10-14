@@ -2,7 +2,7 @@
   "metadata": {
     "title": "Daily AI Intelligence Dashboard",
     "subtitle": "14-Source Curated Executive Briefing across Enterprise & Higher Education",
-    "lastUpdated": "2026-10-14T13:44:53.305829+00:00",
+    "lastUpdated": "2026-10-14T15:45:17.958156+00:00",
     "targetRefreshTime": "Daily at 07:00 AM EDT",
     "sourcesTracked": 14,
     "archiveDaysRetained": 5,
@@ -129,12 +129,12 @@
         "id": "story-2026-10-14-02",
         "source": "Fortune — Eye on AI",
         "sector": "Business and enterprise",
-        "title": "How CFOs at Chevron, ServiceNow and Nasdaq decide which AI bets create value",
-        "url": "https://fortune.com/2026/10/14/chevron-servicenow-nasdaq-cfo-decide-which-ai-bets-create-value/",
+        "title": "Applied Materials’ $5 billion AI lab aims to cut chip development time in half—and restore Silicon Valley’s edge",
+        "url": "https://fortune.com/2026/10/13/applied-materials-advanced-ai-chips-epic-semiconductor-silicon-valley/",
         "accessType": "Web / RSS",
         "bullets": [
-          "Finance chiefs from energy, software and markets say AI has to compete for capital.",
-          "Also trending: Exclusive: Honeywell Technologies launches a ‘brain behind the building’ with Nvidia and Dell. Its CTO says humans will run it for now."
+          "Applied Materials, the leading maker of chipmaking equipment, officially unveiled its EPIC chip R&D center with partner companies including Intel, Micron, SK Hynix, and Samsung Electronics.",
+          "Also trending: Walmart heir Olivia Walton didn’t get the postpartum care she needed. Now, she’s investing $100M to halve the U.S. maternal mortality rate in 5 years."
         ],
         "tags": [
           "AI",
@@ -203,7 +203,7 @@
         "id": "story-2026-10-14-06",
         "source": "The Neuron",
         "sector": "Business and enterprise",
-        "title": "3 hours ago 😸 Google launched Gemini 4 Argon, tying GPT-6 PLUS: Nvidia's €2B Europe push",
+        "title": "5 hours ago 😸 Google launched Gemini 4 Argon, tying GPT-6 PLUS: Nvidia's €2B Europe push",
         "url": "https://www.theneurondaily.com/p/google-launched-gemini-4-argon-tying-gpt-6-b85b",
         "accessType": "Web / Newsletter",
         "bullets": [
