@@ -2,7 +2,7 @@
   "metadata": {
     "title": "Daily AI Intelligence Dashboard",
     "subtitle": "14-Source Curated Executive Briefing across Enterprise & Higher Education",
-    "lastUpdated": "2026-10-19T15:14:08.009954+00:00",
+    "lastUpdated": "2026-10-19T17:23:23.167875+00:00",
     "targetRefreshTime": "Daily at 07:00 AM EDT",
     "sourcesTracked": 14,
     "archiveDaysRetained": 5,
@@ -129,12 +129,12 @@
         "id": "story-2026-10-19-02",
         "source": "Fortune — Eye on AI",
         "sector": "Business and enterprise",
-        "title": "An AI agent sent a stranger to a man’s house without telling him—and exposed the privacy risks of AI assistants",
-        "url": "https://fortune.com/2026/10/19/meta-muse-ai-agent-facebook-marketplace-home-address-privacy/",
+        "title": "The U.S. national debt is approaching the point where bond traders see ‘mounting risk’ of a ‘vicious cycle,’ Moody’s top economist says",
+        "url": "https://fortune.com/2026/10/19/moodys-top-economist-debt-yields-borrowing-concern/",
         "accessType": "Web / RSS",
         "bullets": [
-          "Meta's Muse shared a seller's home address and arranged a pickup without his knowledge, raising questions about how much access AI agents should have.",
-          "Also trending: ‘I don’t think here is our home anymore’: Scientists are leaving America as Trump’s research cuts push them overseas."
+          "“A vicious cycle threatens to take hold, with higher rates adding to the interest payments and debt load, which in turn pushes rates up even more.”",
+          "Also trending: Official data show China is dumping more U.S. Treasury debt. But it may actually be a stealth buyer, with a big stash suspiciously piling up in Canada."
         ],
         "tags": [
           "AI",
@@ -203,12 +203,12 @@
         "id": "story-2026-10-19-06",
         "source": "The Neuron",
         "sector": "Business and enterprise",
-        "title": "5 hours ago 😺 DeepSeek's free model edged Opus 5 at coding PLUS: Open weights, 85% cheaper search, and a US-China twist",
+        "title": "7 hours ago 😺 DeepSeek's free model edged Opus 5 at coding PLUS: Open weights, 85% cheaper search, and a US-China twist",
         "url": "https://www.theneurondaily.com/p/deepseek-s-free-model-edged-opus-5-at-coding",
         "accessType": "Web / Newsletter",
         "bullets": [
           "Latest updates from The Neuron in Business and enterprise.",
-          "Also trending: 21 hours ago 😺 Meta’s new terms cover website scraping PLUS: Google pays 400+ publications. Cloudflare tests payment for AI use.."
+          "Also trending: 23 hours ago 😺 Meta’s new terms cover website scraping PLUS: Google pays 400+ publications. Cloudflare tests payment for AI use.."
         ],
         "tags": [
           "AI",
@@ -239,12 +239,12 @@
         "id": "story-2026-10-19-08",
         "source": "AlphaSignal AI",
         "sector": "Business and enterprise",
-        "title": "Nebius Turns Token Factory Into Runnable AI Recipes for Developers",
-        "url": "https://alphasignal.ai/news/nebius-turns-token-factory-into-runnable-ai-recipes-for-developers",
+        "title": "Exa 3.0 Beats Perplexity on 8 Benchmarks and Slashes Search Costs",
+        "url": "https://alphasignal.ai/news/exa-3-0-beats-perplexity-on-8-benchmarks-and-slashes-search-costs",
         "accessType": "Web / Newsletter",
         "bullets": [
           "Latest updates from AlphaSignal AI in Business and enterprise.",
-          "Also trending: Sarvam Pays Creators to Dub Videos Across 10 Indian Languages."
+          "Also trending: DeepSeek's V4.1 Flash 1017 Boosts Agent Scores 150 Elo at No Extra Cost."
         ],
         "tags": [
           "AI",
