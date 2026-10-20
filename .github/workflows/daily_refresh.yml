@@ -2,8 +2,8 @@ name: Daily AI Dashboard Refresh
 
 on:
   schedule:
-    # Runs at 11:00 UTC daily (7:00 AM EDT)
-    - cron: '0 11 * * *'
+    # Runs at 11:45 UTC daily (7:45 AM EDT)
+    - cron: '0 11 45 * *'
   workflow_dispatch: # Allows manual one-click runs from the GitHub Actions tab
 
 permissions:
