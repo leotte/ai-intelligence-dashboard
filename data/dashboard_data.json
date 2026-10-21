@@ -2,7 +2,7 @@
   "metadata": {
     "title": "Daily AI Intelligence Dashboard",
     "subtitle": "14-Source Curated Executive Briefing across Enterprise & Higher Education",
-    "lastUpdated": "2026-10-21T13:00:11.826607+00:00",
+    "lastUpdated": "2026-10-21T16:07:12.951641+00:00",
     "targetRefreshTime": "Daily at 07:00 AM EDT",
     "sourcesTracked": 14,
     "archiveDaysRetained": 5,
@@ -129,12 +129,12 @@
         "id": "story-2026-10-21-02",
         "source": "Fortune — Eye on AI",
         "sector": "Business and enterprise",
-        "title": "Trump’s remarkable mess on electric vehicles: How he made them more expensive and harder to find just as he went to war on Iran",
-        "url": "https://fortune.com/2026/10/21/trump-electric-vehicles-iran-war-tax-credit/",
+        "title": "Newport Restaurant Group is 100% owned by its workers—and has paid them $33 million since 1995: ‘Nobody else gets the benefit’",
+        "url": "https://fortune.com/article/newport-restaurant-group-esop-employee-owned-33-million-small-business-succession/",
         "accessType": "Web / RSS",
         "bullets": [
-          "Before the war, prices for used electric vehicles were still drifting down in the wake of the expired used EV federal tax credit. Then a run on EVs began.",
-          "Also trending: Is Anthropic the IPO market’s last hope for 2026? The clock is ticking."
+          "Bartender Andy Staane has spent 24 years at Newport Restaurant Group, where every employee is an owner. As baby boomers prepare to hand off up to $5 trillion in small businesses, its CEO says ESOPs are a “proven model.”",
+          "Also trending: Taser maker Axon is mandating AI use to speed up work as surveillance tools face scrutiny."
         ],
         "tags": [
           "AI",
@@ -203,7 +203,7 @@
         "id": "story-2026-10-21-06",
         "source": "The Neuron",
         "sector": "Business and enterprise",
-        "title": "3 hours ago 😺 Meta’s Muse made shared chats searchable PLUS: SpaceX’s AI arm, OpenAI’s drug bet, and a safer way to fight bills",
+        "title": "6 hours ago 😺 Meta’s Muse made shared chats searchable PLUS: SpaceX’s AI arm, OpenAI’s drug bet, and a safer way to fight bills",
         "url": "https://www.theneurondaily.com/p/meta-s-muse-made-shared-chats-searchable",
         "accessType": "Web / Newsletter",
         "bullets": [
@@ -221,12 +221,12 @@
         "id": "story-2026-10-21-07",
         "source": "TLDR AI",
         "sector": "Business and enterprise",
-        "title": "Mercury 3 🤖, MiniMax Flash 3.1 ⚡, Exa 3 🔎",
-        "url": "https://tldr.tech/ai/2026-10-20",
+        "title": "DeepSeek DeepInfer 🐋, PyTorch on TPUs ⚡, Ramp’s agent framework 👨‍💻",
+        "url": "https://tldr.tech/ai/2026-10-21",
         "accessType": "Web / Newsletter",
         "bullets": [
           "Latest updates from TLDR AI in Business and enterprise.",
-          "Also trending: DeepSeek’s new Flash ⚡, Replit drops Anthropic 🔄, Anthropic’s workforce 💼."
+          "Also trending: Mercury 3 🤖, MiniMax Flash 3.1 ⚡, Exa 3 🔎."
         ],
         "tags": [
           "AI",
@@ -239,12 +239,12 @@
         "id": "story-2026-10-21-08",
         "source": "AlphaSignal AI",
         "sector": "Business and enterprise",
-        "title": "Anthropic's Claude Ran 64 Hours to Design 17 Scorpion Antivenom Proteins",
-        "url": "https://alphasignal.ai/news/anthropic-s-claude-ran-64-hours-to-design-17-scorpion-antivenom-proteins",
+        "title": "Unitree's H2-X Humanoid Promises 8-Hour Shifts Guarding and Rescuing",
+        "url": "https://alphasignal.ai/news/unitree-s-h2-x-humanoid-promises-8-hour-shifts-guarding-and-rescuing",
         "accessType": "Web / Newsletter",
         "bullets": [
           "Latest updates from AlphaSignal AI in Business and enterprise.",
-          "Also trending: Unitree's H2-X Humanoid Promises 8-Hour Shifts Guarding and Rescuing."
+          "Also trending: Anthropic's Claude Ran 64 Hours to Design 17 Scorpion Antivenom Proteins."
         ],
         "tags": [
           "AI",
