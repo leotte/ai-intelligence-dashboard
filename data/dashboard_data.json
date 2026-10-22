@@ -2,7 +2,7 @@
   "metadata": {
     "title": "Daily AI Intelligence Dashboard",
     "subtitle": "14-Source Curated Executive Briefing across Enterprise & Higher Education",
-    "lastUpdated": "2026-10-22T12:09:24.299021+00:00",
+    "lastUpdated": "2026-10-22T16:01:36.234060+00:00",
     "targetRefreshTime": "Daily at 07:00 AM EDT",
     "sourcesTracked": 14,
     "archiveDaysRetained": 5,
@@ -129,12 +129,12 @@
         "id": "story-2026-10-22-02",
         "source": "Fortune — Eye on AI",
         "sector": "Business and enterprise",
-        "title": "Merck Animal Health SVP: to promote human health, invest in protecting animals",
-        "url": "https://fortune.com/2026/10/22/merck-animal-health-svp-to-promote-human-health-invest-in-protecting-animals/",
+        "title": "Gen Z expects to inherit $124 trillion—but retired boomers are ‘spending their kids’ inheritance’ to go on vacation instead. It’s called Ski-ing",
+        "url": "https://fortune.com/2026/10/22/gen-z-millennials-inherit-124-trillion-retired-boomers-spending-kids-inheritance-vacation-skiing-great-wealth-transfer/",
         "accessType": "Web / RSS",
         "bullets": [
-          "While humans invest billions each year to protect ourselves from disease, less than 1% of global health spending goes toward animal health.",
-          "Also trending: Central banks around the world are quietly stockpiling four times more gold than usual and are moving it out of the U.S.."
+          "Retired boomers are Ski-ing—\"spending the kids’ inheritance.\" It will be a huge shock to millennial and Gen Z who expect a $124 trillion wealth transfer.",
+          "Also trending: Meta’s CFO Susan Li has a new AI customer in mind: corporate America."
         ],
         "tags": [
           "AI",
@@ -147,12 +147,12 @@
         "id": "story-2026-10-22-03",
         "source": "Harvard Business Review — AI and Machine Learning",
         "sector": "Business and enterprise",
-        "title": "When Restrictive Cybersecurity Policies Backfire",
-        "url": "/2026/10/when-restrictive-cybersecurity-policies-backfire",
+        "title": "Our Favorite Management Tips on Delegating Effectively",
+        "url": "/2026/10/our-favorite-management-tips-on-delegating",
         "accessType": "Web / Journal",
         "bullets": [
           "Latest updates from Harvard Business Review — AI and Machine Learning in Business and enterprise.",
-          "Also trending: The Deployment Failure Holding Back Your AI Investments."
+          "Also trending: Leaders Need to Grapple with Employee Ambivalence on AI."
         ],
         "tags": [
           "AI",
@@ -203,7 +203,7 @@
         "id": "story-2026-10-22-06",
         "source": "The Neuron",
         "sector": "Business and enterprise",
-        "title": "2 hours ago 😺 New Claude Duet works while your phone's off PLUS: OpenAI's 32-minute drug lead, LiteLLM hack",
+        "title": "6 hours ago 😺 New Claude Duet works while your phone's off PLUS: OpenAI's 32-minute drug lead, LiteLLM hack",
         "url": "https://www.theneurondaily.com/p/new-claude-duet-works-while-your-phone-s-off",
         "accessType": "Web / Newsletter",
         "bullets": [
@@ -221,12 +221,12 @@
         "id": "story-2026-10-22-07",
         "source": "TLDR AI",
         "sector": "Business and enterprise",
-        "title": "DeepSeek DeepInfer 🐋, PyTorch on TPUs ⚡, Ramp’s agent framework 👨‍💻",
-        "url": "https://tldr.tech/ai/2026-10-21",
+        "title": "Claude Duet 🤖, Anthropic API changes 👨‍💻, Recursive’s local model 💻",
+        "url": "https://tldr.tech/ai/2026-10-22",
         "accessType": "Web / Newsletter",
         "bullets": [
           "Latest updates from TLDR AI in Business and enterprise.",
-          "Also trending: Mercury 3 🤖, MiniMax Flash 3.1 ⚡, Exa 3 🔎."
+          "Also trending: DeepSeek DeepInfer 🐋, PyTorch on TPUs ⚡, Ramp’s agent framework 👨‍💻."
         ],
         "tags": [
           "AI",
@@ -244,7 +244,7 @@
         "accessType": "Web / Newsletter",
         "bullets": [
           "Latest updates from AlphaSignal AI in Business and enterprise.",
-          "Also trending: OpenAI's PHP2Shell Exposes 70% of Websites to Remote Code Attacks."
+          "Also trending: Anthropic's Claude Security Now Tracks and Fixes Over a Million Code Vulnerabilities."
         ],
         "tags": [
           "AI",
