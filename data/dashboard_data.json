@@ -2,7 +2,7 @@
   "metadata": {
     "title": "Daily AI Intelligence Dashboard",
     "subtitle": "14-Source Curated Executive Briefing across Enterprise & Higher Education",
-    "lastUpdated": "2026-11-19T19:38:19.213335+00:00",
+    "lastUpdated": "2026-11-20T19:15:41.709051+00:00",
     "targetRefreshTime": "Daily at 07:00 AM EDT",
     "sourcesTracked": 14,
     "archiveDaysRetained": 5,
@@ -97,8 +97,8 @@
     ]
   },
   "currentPull": {
-    "date": "2026-11-19",
-    "headline": "Daily AI Intelligence Briefing Across 14 Enterprise & Higher Ed Sources (2026-11-19)",
+    "date": "2026-11-20",
+    "headline": "Daily AI Intelligence Briefing Across 14 Enterprise & Higher Ed Sources (2026-11-20)",
     "executiveSummary": "Automated RSS/web feed pull across Business & Enterprise, Higher Education, and Cross-Sector sources. Set GEMINI_API_KEY in your environment or GitHub Secrets to enable AI-synthesized executive takeaways.",
     "metrics": {
       "sourcesReported": 14,
@@ -108,7 +108,7 @@
     },
     "stories": [
       {
-        "id": "story-2026-11-19-01",
+        "id": "story-2026-11-20-01",
         "source": "VentureBeat",
         "sector": "Business and enterprise",
         "title": "Enterprise AI's real risk isn't autonomous agents. It's the complexity between them.",
@@ -126,15 +126,15 @@
         "importance": "High"
       },
       {
-        "id": "story-2026-11-19-02",
+        "id": "story-2026-11-20-02",
         "source": "Fortune — Eye on AI",
         "sector": "Business and enterprise",
-        "title": "I tested an AI startup that claimed it could beat Wall Street earnings estimates. It won 40 out of 50 times",
-        "url": "https://fortune.com/2026/11/19/quarterly-earnings-ai-vs-analysts-samaya/",
+        "title": "GTA VI made an estimated $2.36 billion on day one. Now 1,600 Rockstar workers are voting on a union",
+        "url": "https://fortune.com/2026/11/20/rockstar-games-union-vote-gta-vi/",
         "accessType": "Web / RSS",
         "bullets": [
-          "Many CEOs live or die by meeting quarterly earnings targets. An AI startup called Samaya just called those targets into question.",
-          "Also trending: iPhone designer Tony Fadell’s next big thing: Bringing AI to fashion in hopes of saving H&M $100 million a year."
+          "More than 1,600 Rockstar employees in the U.K. are voting through Nov. 26 on recognizing an IWGB-backed union, amid layoff fears, a union-busting tribunal, and AI.",
+          "Also trending: ‘Half philanthropy and half protest’: Noah Wyle and Figs pair up to erase $200 million in real patients’ medical debt."
         ],
         "tags": [
           "AI",
@@ -144,15 +144,15 @@
         "importance": "High"
       },
       {
-        "id": "story-2026-11-19-03",
+        "id": "story-2026-11-20-03",
         "source": "Harvard Business Review — AI and Machine Learning",
         "sector": "Business and enterprise",
-        "title": "In Regulated Industries, AI Without Certainty Is Just Risk",
-        "url": "/sponsored/2026/11/in-regulated-industries-ai-without-certainty-is-just-risk",
+        "title": "We’re Seeing the Costs of Moving Fast",
+        "url": "/2026/11/were-seeing-the-costs-of-moving-fast",
         "accessType": "Web / Journal",
         "bullets": [
           "Latest updates from Harvard Business Review — AI and Machine Learning in Business and enterprise.",
-          "Also trending: How 3 Brands Bought in on the “Grand Theft Auto VI” Hype."
+          "Also trending: A Better Way to Foster Rigorous Debate in the Boardroom."
         ],
         "tags": [
           "AI",
@@ -162,14 +162,14 @@
         "importance": "High"
       },
       {
-        "id": "story-2026-11-19-04",
+        "id": "story-2026-11-20-04",
         "source": "MIT Sloan — AI at Work",
         "sector": "Business and enterprise",
         "title": "Latest updates from https://mitsloan.mit.edu/ideas-made-to-matter/topic/artificial-intelligence",
         "url": "https://mitsloan.mit.edu/ideas-made-to-matter/topic/artificial-intelligence",
         "accessType": "Web / RSS",
         "bullets": [
-          "MIT Sloan Management Review https://sloanreview.mit.edu The New Business of Innovation Thu, 19 Nov 2026 13:04:38 +0000 en-US hourly 1 https://wordpress.org/?v=7.1.5",
+          "MIT Sloan Management Review https://sloanreview.mit.edu The New Business of Innovation Fri, 20 Nov 2026 17:57:20 +0000 en-US hourly 1 https://wordpress.org/?v=7.1.5",
           "Source coverage tracked via Web / RSS (Business and enterprise)."
         ],
         "tags": [
@@ -198,15 +198,15 @@
         "importance": "High"
       },
       {
-        "id": "story-2026-11-19-06",
+        "id": "story-2026-11-20-06",
         "source": "The Neuron",
         "sector": "Business and enterprise",
-        "title": "9 hours ago 😸 GAO got 4 chatbots to plan attacks PLUS: Anthropic's $83 IPO and Citi's AI-agent rules",
-        "url": "https://www.theneurondaily.com/p/gao-got-4-chatbots-to-plan-attacks",
+        "title": "9 hours ago 😺 Meta's Muse AI Agent Reportedly Accessed Signal Messages PLUS: Anthropic's 33% IPO pop and new chip export rules",
+        "url": "https://www.theneurondaily.com/p/meta-s-muse-ai-agent-reportedly-accessed-signal-messages",
         "accessType": "Web / Newsletter",
         "bullets": [
           "Latest updates from The Neuron in Business and enterprise.",
-          "Also trending: Nov 18, 2026 😺 OpenAI unveils GPT-6.2 Astra and Sol PLUS: New OpenAI models, free Gemini Tasks, and MAI tools.."
+          "Also trending: Nov 19, 2026 😸 GAO got 4 chatbots to plan attacks PLUS: Anthropic's $83 IPO and Citi's AI-agent rules."
         ],
         "tags": [
           "AI",
@@ -216,15 +216,15 @@
         "importance": "High"
       },
       {
-        "id": "story-2026-11-19-07",
+        "id": "story-2026-11-20-07",
         "source": "TLDR AI",
         "sector": "Business and enterprise",
-        "title": "Gemini 4 Neon 🚀, Genie 4 worlds 🌍, AI designs chips 🔬",
-        "url": "https://tldr.tech/ai/2026-11-19",
+        "title": "Gemini tool retrieval 🔧, Stripe evals methods 👨‍💻, agent swarms 🐝",
+        "url": "https://tldr.tech/ai/2026-11-20",
         "accessType": "Web / Newsletter",
         "bullets": [
           "Latest updates from TLDR AI in Business and enterprise.",
-          "Also trending: GPT-6.2 Astra 🧠, Microsoft’s seven models 🚀, Replit Missions 🤖."
+          "Also trending: Gemini 4 Neon 🚀, Genie 4 worlds 🌍, AI designs chips 🔬."
         ],
         "tags": [
           "AI",
@@ -234,15 +234,15 @@
         "importance": "Medium"
       },
       {
-        "id": "story-2026-11-19-08",
+        "id": "story-2026-11-20-08",
         "source": "AlphaSignal AI",
         "sector": "Business and enterprise",
-        "title": "Anthropic Prices $81B IPO, Valuing Claude's Maker at $1.5 Trillion",
-        "url": "https://alphasignal.ai/news/anthropic-prices-81b-ipo-valuing-claude-s-maker-at-1-5-trillion",
+        "title": "Google's Gemini 4 Neon Targets Long-Running AI Agents at 50% Lower Cost",
+        "url": "https://alphasignal.ai/news/google-s-gemini-4-neon-targets-long-running-ai-agents-at-50-lower-cost",
         "accessType": "Web / Newsletter",
         "bullets": [
           "Latest updates from AlphaSignal AI in Business and enterprise.",
-          "Also trending: Google DeepMind's Gemini 4 Neon Targets Complex Agent Workflows at 61 Intelligence Score."
+          "Also trending: Google's Gemini Now Turns Plain-Text Prompts Into Custom GIFs."
         ],
         "tags": [
           "AI",
@@ -312,7 +312,7 @@
         "importance": "Medium"
       },
       {
-        "id": "story-2026-11-19-12",
+        "id": "story-2026-11-20-12",
         "source": "Campus Technology",
         "sector": "Higher education",
         "title": "Campus Technology Reveals 2026 Product of the Year Winners",
@@ -330,15 +330,15 @@
         "importance": "Medium"
       },
       {
-        "id": "story-2026-11-19-13",
+        "id": "story-2026-11-20-13",
         "source": "Jisc — Artificial Intelligence Community",
         "sector": "Higher education",
-        "title": "AI in FE: AI Sparked by Curiosity",
-        "url": "https://nationalcentreforai.jiscinvolve.org/wp/2026/11/12/ai-in-fe-ai-sparked-by-curiosity/",
+        "title": "How do we teach AI use when it keeps changing?",
+        "url": "https://nationalcentreforai.jiscinvolve.org/wp/2026/11/20/how-do-we-teach-ai-use-when-it-keeps-changing/",
         "accessType": "Web / Community",
         "bullets": [
-          "At our October AI in FE community session, we welcomed Bryony Evett-Hackfort, Director of Teaching, Learning and Education at Coleg Sir Gâr and Coleg Ceredigion, to share how the colleges are developing AI skills and confidence among staff and learners. Her pr...",
-          "Also trending: How to introduce AI into marking and feedback."
+          "I get asked this a lot at conferences and in our community sessions too. My answer is usually that it’s about more than teaching students and learners how to do X with Y. It’s helping them learn how to find out about new developments, decide what’s useful and ...",
+          "Also trending: AI in FE: AI Sparked by Curiosity."
         ],
         "tags": [
           "AI",
@@ -348,7 +348,7 @@
         "importance": "Medium"
       },
       {
-        "id": "story-2026-11-19-14",
+        "id": "story-2026-11-20-14",
         "source": "One Useful Thing",
         "sector": "Cross-sector",
         "title": "https://www.oneusefulthing.org/p/fable-52-and-jagged-agi https://www.oneusefulthing.org/p/fable-52-and-jagged-agi Mon, 09 Nov 2026 19:04:26 GMT Before getting started, I wanted to thank my readers for",
@@ -368,6 +368,277 @@
     ]
   },
   "archive": [
+    {
+      "date": "2026-11-19",
+      "headline": "Daily AI Intelligence Briefing Across 14 Enterprise & Higher Ed Sources (2026-11-19)",
+      "executiveSummary": "Automated RSS/web feed pull across Business & Enterprise, Higher Education, and Cross-Sector sources. Set GEMINI_API_KEY in your environment or GitHub Secrets to enable AI-synthesized executive takeaways.",
+      "metrics": {
+        "sourcesReported": 14,
+        "totalStories": 14,
+        "highImpactCount": 8,
+        "primarySector": "Enterprise & Higher Education AI"
+      },
+      "stories": [
+        {
+          "id": "story-2026-11-19-01",
+          "source": "VentureBeat",
+          "sector": "Business and enterprise",
+          "title": "Enterprise AI's real risk isn't autonomous agents. It's the complexity between them.",
+          "url": "https://venturebeat.com/ai/enterprise-ais-real-risk-isnt-autonomous-agents-its-the-complexity-between-them",
+          "accessType": "Web / RSS",
+          "bullets": [
+            "Presented by Gravitee Read more",
+            "Also trending: When agents act on their own, governance has to live in the data layer."
+          ],
+          "tags": [
+            "AI",
+            "Business"
+          ],
+          "readTime": "3 min",
+          "importance": "High"
+        },
+        {
+          "id": "story-2026-11-19-02",
+          "source": "Fortune — Eye on AI",
+          "sector": "Business and enterprise",
+          "title": "I tested an AI startup that claimed it could beat Wall Street earnings estimates. It won 40 out of 50 times",
+          "url": "https://fortune.com/2026/11/19/quarterly-earnings-ai-vs-analysts-samaya/",
+          "accessType": "Web / RSS",
+          "bullets": [
+            "Many CEOs live or die by meeting quarterly earnings targets. An AI startup called Samaya just called those targets into question.",
+            "Also trending: iPhone designer Tony Fadell’s next big thing: Bringing AI to fashion in hopes of saving H&M $100 million a year."
+          ],
+          "tags": [
+            "AI",
+            "Business"
+          ],
+          "readTime": "3 min",
+          "importance": "High"
+        },
+        {
+          "id": "story-2026-11-19-03",
+          "source": "Harvard Business Review — AI and Machine Learning",
+          "sector": "Business and enterprise",
+          "title": "In Regulated Industries, AI Without Certainty Is Just Risk",
+          "url": "/sponsored/2026/11/in-regulated-industries-ai-without-certainty-is-just-risk",
+          "accessType": "Web / Journal",
+          "bullets": [
+            "Latest updates from Harvard Business Review — AI and Machine Learning in Business and enterprise.",
+            "Also trending: How 3 Brands Bought in on the “Grand Theft Auto VI” Hype."
+          ],
+          "tags": [
+            "AI",
+            "Business"
+          ],
+          "readTime": "3 min",
+          "importance": "High"
+        },
+        {
+          "id": "story-2026-11-19-04",
+          "source": "MIT Sloan — AI at Work",
+          "sector": "Business and enterprise",
+          "title": "Latest updates from https://mitsloan.mit.edu/ideas-made-to-matter/topic/artificial-intelligence",
+          "url": "https://mitsloan.mit.edu/ideas-made-to-matter/topic/artificial-intelligence",
+          "accessType": "Web / RSS",
+          "bullets": [
+            "MIT Sloan Management Review https://sloanreview.mit.edu The New Business of Innovation Thu, 19 Nov 2026 13:04:38 +0000 en-US hourly 1 https://wordpress.org/?v=7.1.5",
+            "Source coverage tracked via Web / RSS (Business and enterprise)."
+          ],
+          "tags": [
+            "AI",
+            "Business"
+          ],
+          "readTime": "3 min",
+          "importance": "High"
+        },
+        {
+          "id": "story-2026-11-19-05",
+          "source": "The Batch",
+          "sector": "Business and enterprise",
+          "title": "Tabular Foundation Models for Data Science Agents",
+          "url": "https://bit.ly/4BM6ysf",
+          "accessType": "Web / Newsletter",
+          "bullets": [
+            "Latest updates from The Batch in Business and enterprise.",
+            "Source coverage tracked via Web / Newsletter (Business and enterprise)."
+          ],
+          "tags": [
+            "AI",
+            "Business"
+          ],
+          "readTime": "3 min",
+          "importance": "High"
+        },
+        {
+          "id": "story-2026-11-19-06",
+          "source": "The Neuron",
+          "sector": "Business and enterprise",
+          "title": "9 hours ago 😸 GAO got 4 chatbots to plan attacks PLUS: Anthropic's $83 IPO and Citi's AI-agent rules",
+          "url": "https://www.theneurondaily.com/p/gao-got-4-chatbots-to-plan-attacks",
+          "accessType": "Web / Newsletter",
+          "bullets": [
+            "Latest updates from The Neuron in Business and enterprise.",
+            "Also trending: Nov 18, 2026 😺 OpenAI unveils GPT-6.2 Astra and Sol PLUS: New OpenAI models, free Gemini Tasks, and MAI tools.."
+          ],
+          "tags": [
+            "AI",
+            "Business"
+          ],
+          "readTime": "3 min",
+          "importance": "High"
+        },
+        {
+          "id": "story-2026-11-19-07",
+          "source": "TLDR AI",
+          "sector": "Business and enterprise",
+          "title": "Gemini 4 Neon 🚀, Genie 4 worlds 🌍, AI designs chips 🔬",
+          "url": "https://tldr.tech/ai/2026-11-19",
+          "accessType": "Web / Newsletter",
+          "bullets": [
+            "Latest updates from TLDR AI in Business and enterprise.",
+            "Also trending: GPT-6.2 Astra 🧠, Microsoft’s seven models 🚀, Replit Missions 🤖."
+          ],
+          "tags": [
+            "AI",
+            "Business"
+          ],
+          "readTime": "3 min",
+          "importance": "Medium"
+        },
+        {
+          "id": "story-2026-11-19-08",
+          "source": "AlphaSignal AI",
+          "sector": "Business and enterprise",
+          "title": "Anthropic Prices $81B IPO, Valuing Claude's Maker at $1.5 Trillion",
+          "url": "https://alphasignal.ai/news/anthropic-prices-81b-ipo-valuing-claude-s-maker-at-1-5-trillion",
+          "accessType": "Web / Newsletter",
+          "bullets": [
+            "Latest updates from AlphaSignal AI in Business and enterprise.",
+            "Also trending: Google DeepMind's Gemini 4 Neon Targets Complex Agent Workflows at 61 Intelligence Score."
+          ],
+          "tags": [
+            "AI",
+            "Business"
+          ],
+          "readTime": "3 min",
+          "importance": "Medium"
+        },
+        {
+          "id": "story-2026-10-13-09",
+          "source": "The Chronicle — Jagged Intelligence",
+          "sector": "Higher education",
+          "title": "Over 60% of R1 Faculty Now Utilize AI in Federal Grant Proposal Drafting",
+          "url": "https://www.chronicle.com/newsletter/jagged-intelligence",
+          "accessType": "Web / Newsletter",
+          "bullets": [
+            "Cohort data from major research universities reveals that over 60% of tenure-track faculty regularly use AI tools to draft literature reviews and preliminary NSF/NIH grant sections.",
+            "Despite near-universal adoption across STEM disciplines, campus institutional policies remain fragmented, creating ambiguity around disclosure and scientific attribution."
+          ],
+          "tags": [
+            "Chronicle",
+            "FacultyResearch",
+            "GrantWriting",
+            "ResearchIntegrity"
+          ],
+          "readTime": "4 min",
+          "importance": "High"
+        },
+        {
+          "id": "story-2026-10-13-10",
+          "source": "EDUCAUSE Review",
+          "sector": "Higher education",
+          "title": "2026 EDUCAUSE Top 10: Cultivating the 'Human Edge of AI' Across Campus",
+          "url": "https://er.educause.edu/topics/emerging-technologies/artificial-intelligence",
+          "accessType": "Web / Journal",
+          "bullets": [
+            "The annual EDUCAUSE leadership agenda emphasizes that artificial intelligence is not a standalone solution for higher education's structural challenges.",
+            "CIOs are urged to empower students and faculty to engage critically with automated systems, reinforcing human empathy, debate, and ethical reflection as core institutional priorities."
+          ],
+          "tags": [
+            "EDUCAUSE",
+            "Top10ITIssues",
+            "HumanEdge",
+            "AcademicLeadership"
+          ],
+          "readTime": "5 min",
+          "importance": "High"
+        },
+        {
+          "id": "story-2026-10-13-11",
+          "source": "Inside Higher Ed — Artificial Intelligence",
+          "sector": "Higher education",
+          "title": "Campus AI Rollouts Outpace Institutional Protections for Student Privacy",
+          "url": "https://www.insidehighered.com/tags/artificial-intelligence",
+          "accessType": "Web / Journal",
+          "bullets": [
+            "A new higher education policy report warns that universities are rapidly deploying conversational intake bots for admissions and financial aid without adequate data privacy firewalls.",
+            "Advocates call for mandatory third-party audits of academic chatbots to ensure sensitive student financial disclosures are not retained by commercial AI vendors."
+          ],
+          "tags": [
+            "StudentPrivacy",
+            "ChatbotGovernance",
+            "AdmissionsTech",
+            "HigherEdPolicy"
+          ],
+          "readTime": "4 min",
+          "importance": "Medium"
+        },
+        {
+          "id": "story-2026-11-19-12",
+          "source": "Campus Technology",
+          "sector": "Higher education",
+          "title": "Campus Technology Reveals 2026 Product of the Year Winners",
+          "url": "https://campustechnology.com/articles/2026/11/18/campus-technology-reveals-2026-product-of-the-year-winners.aspx",
+          "accessType": "Web / RSS",
+          "bullets": [
+            "Thirteen companies were selected as winners for their product achievements.",
+            "Also trending: Survey: Half of Companies Confirm Unauthorized AI Agent Actions."
+          ],
+          "tags": [
+            "AI",
+            "Higher"
+          ],
+          "readTime": "3 min",
+          "importance": "Medium"
+        },
+        {
+          "id": "story-2026-11-19-13",
+          "source": "Jisc — Artificial Intelligence Community",
+          "sector": "Higher education",
+          "title": "AI in FE: AI Sparked by Curiosity",
+          "url": "https://nationalcentreforai.jiscinvolve.org/wp/2026/11/12/ai-in-fe-ai-sparked-by-curiosity/",
+          "accessType": "Web / Community",
+          "bullets": [
+            "At our October AI in FE community session, we welcomed Bryony Evett-Hackfort, Director of Teaching, Learning and Education at Coleg Sir Gâr and Coleg Ceredigion, to share how the colleges are developing AI skills and confidence among staff and learners. Her pr...",
+            "Also trending: How to introduce AI into marking and feedback."
+          ],
+          "tags": [
+            "AI",
+            "Higher"
+          ],
+          "readTime": "3 min",
+          "importance": "Medium"
+        },
+        {
+          "id": "story-2026-11-19-14",
+          "source": "One Useful Thing",
+          "sector": "Cross-sector",
+          "title": "https://www.oneusefulthing.org/p/fable-52-and-jagged-agi https://www.oneusefulthing.org/p/fable-52-and-jagged-agi Mon, 09 Nov 2026 19:04:26 GMT Before getting started, I wanted to thank my readers for",
+          "url": "https://www.oneusefulthing.org/feed",
+          "accessType": "Substack / RSS",
+          "bullets": [
+            "Latest updates from One Useful Thing in Cross-sector.",
+            "Also trending: You can see what it came up with here."
+          ],
+          "tags": [
+            "AI",
+            "Cross-sector"
+          ],
+          "readTime": "3 min",
+          "importance": "Medium"
+        }
+      ]
+    },
     {
       "date": "2026-11-18",
       "headline": "Daily AI Intelligence Briefing Across 14 Enterprise & Higher Ed Sources (2026-11-18)",
@@ -1442,279 +1713,6 @@
         },
         {
           "id": "story-2026-11-15-14",
-          "source": "One Useful Thing",
-          "sector": "Cross-sector",
-          "title": "https://www.oneusefulthing.org/p/fable-52-and-jagged-agi https://www.oneusefulthing.org/p/fable-52-and-jagged-agi Mon, 09 Nov 2026 19:04:26 GMT Before getting started, I wanted to thank my readers for",
-          "url": "https://www.oneusefulthing.org/feed",
-          "accessType": "Substack / RSS",
-          "bullets": [
-            "Latest updates from One Useful Thing in Cross-sector.",
-            "Also trending: You can see what it came up with here."
-          ],
-          "tags": [
-            "AI",
-            "Cross-sector"
-          ],
-          "readTime": "3 min",
-          "importance": "Medium"
-        }
-      ]
-    },
-    {
-      "date": "2026-11-14",
-      "headline": "Daily AI Intelligence Briefing Across 14 Enterprise & Higher Ed Sources (2026-11-14)",
-      "executiveSummary": "Automated RSS/web feed pull across Business & Enterprise, Higher Education, and Cross-Sector sources. Set GEMINI_API_KEY in your environment or GitHub Secrets to enable AI-synthesized executive takeaways.",
-      "metrics": {
-        "sourcesReported": 14,
-        "totalStories": 14,
-        "highImpactCount": 7,
-        "primarySector": "Enterprise & Higher Education AI"
-      },
-      "stories": [
-        {
-          "id": "story-2026-11-14-01",
-          "source": "VentureBeat",
-          "sector": "Business and enterprise",
-          "title": "Enterprise AI's real risk isn't autonomous agents. It's the complexity between them.",
-          "url": "https://venturebeat.com/ai/enterprise-ais-real-risk-isnt-autonomous-agents-its-the-complexity-between-them",
-          "accessType": "Web / RSS",
-          "bullets": [
-            "Presented by Gravitee Read more",
-            "Also trending: When agents act on their own, governance has to live in the data layer."
-          ],
-          "tags": [
-            "AI",
-            "Business"
-          ],
-          "readTime": "3 min",
-          "importance": "High"
-        },
-        {
-          "id": "story-2026-11-14-02",
-          "source": "Fortune — Eye on AI",
-          "sector": "Business and enterprise",
-          "title": "Delta CEO says air traffic control systems are so outdated that some commercial flight routes were faster in the 1950s than they are today",
-          "url": "https://fortune.com/article/delta-ceo-ed-bastian-air-traffic-control-systems-flight-routes-1950s-faa-modernization/",
-          "accessType": "Web / RSS",
-          "bullets": [
-            "Ed Bastian says it’s still safe to fly, though.",
-            "Also trending: Air traffic control, phone systems and emails are all down following China’s AI espionage scandal — is there a common answer?."
-          ],
-          "tags": [
-            "AI",
-            "Business"
-          ],
-          "readTime": "3 min",
-          "importance": "High"
-        },
-        {
-          "id": "story-2026-11-14-03",
-          "source": "Harvard Business Review — AI and Machine Learning",
-          "sector": "Business and enterprise",
-          "title": "How Nvidia Can Move Forward Without Its Founder",
-          "url": "/2026/11/how-nvidia-can-move-forward-without-its-founder",
-          "accessType": "Web / Journal",
-          "bullets": [
-            "Latest updates from Harvard Business Review — AI and Machine Learning in Business and enterprise.",
-            "Also trending: How Boards Detect and Prevent Internal Misconduct."
-          ],
-          "tags": [
-            "AI",
-            "Business"
-          ],
-          "readTime": "3 min",
-          "importance": "High"
-        },
-        {
-          "id": "story-2026-11-14-04",
-          "source": "MIT Sloan — AI at Work",
-          "sector": "Business and enterprise",
-          "title": "Latest updates from https://mitsloan.mit.edu/ideas-made-to-matter/topic/artificial-intelligence",
-          "url": "https://mitsloan.mit.edu/ideas-made-to-matter/topic/artificial-intelligence",
-          "accessType": "Web / RSS",
-          "bullets": [
-            "MIT Sloan Management Review https://sloanreview.mit.edu The New Business of Innovation Fri, 13 Nov 2026 00:41:43 +0000 en-US hourly 1 https://wordpress.org/?v=7.1.4",
-            "Source coverage tracked via Web / RSS (Business and enterprise)."
-          ],
-          "tags": [
-            "AI",
-            "Business"
-          ],
-          "readTime": "3 min",
-          "importance": "High"
-        },
-        {
-          "id": "story-2026-10-13-08",
-          "source": "The Batch",
-          "sector": "Business and enterprise",
-          "title": "'Priming' Cuts Architectural Model Modification Costs by Over 99%",
-          "url": "https://www.deeplearning.ai/the-batch/",
-          "accessType": "Web / Newsletter",
-          "bullets": [
-            "A new technique called Priming demonstrates that reusing pretrained Transformer weights allows researchers to experiment with hybrid layer architectures at less than 1% of pretraining compute.",
-            "The approach delivers up to 2x higher inference throughput without requiring organizations to train new models from scratch."
-          ],
-          "tags": [
-            "Priming",
-            "TransformerArchitecture",
-            "InferenceEfficiency",
-            "AndrewNg"
-          ],
-          "readTime": "3 min",
-          "importance": "Medium"
-        },
-        {
-          "id": "story-2026-11-14-06",
-          "source": "The Neuron",
-          "sector": "Business and enterprise",
-          "title": "1 hour ago 😸 Deep Dive: The Future of Work is Multiplayer PLUS: What happens when AI stops being your personal assistant and starts working alongside the whole team?",
-          "url": "https://www.theneurondaily.com/p/deep-dive-the-future-of-work-is-multiplayer",
-          "accessType": "Web / Newsletter",
-          "bullets": [
-            "Latest updates from The Neuron in Business and enterprise.",
-            "Also trending: Nov 13, 2026 😺 Jensen Huang resigned as Nvidia CEO PLUS: CFO Colette Kress takes over. Earnings are Tuesday.."
-          ],
-          "tags": [
-            "AI",
-            "Business"
-          ],
-          "readTime": "3 min",
-          "importance": "High"
-        },
-        {
-          "id": "story-2026-11-14-07",
-          "source": "TLDR AI",
-          "sector": "Business and enterprise",
-          "title": "Gemini 4 Hydrogen 🚀, self-hosted Claude agents 🔒, Replit agent commerce 🛒",
-          "url": "https://tldr.tech/ai/2026-11-13",
-          "accessType": "Web / Newsletter",
-          "bullets": [
-            "Latest updates from TLDR AI in Business and enterprise.",
-            "Also trending: Grok Bot 1.0 🤖, AlphaGenome 2 🧬, Gemini Decisions 🧠."
-          ],
-          "tags": [
-            "AI",
-            "Business"
-          ],
-          "readTime": "3 min",
-          "importance": "Medium"
-        },
-        {
-          "id": "story-2026-11-14-08",
-          "source": "AlphaSignal AI",
-          "sector": "Business and enterprise",
-          "title": "Anthropic's Claude Code Lets Developers Theme Their AI Coding Desktop",
-          "url": "https://alphasignal.ai/news/anthropic-s-claude-code-lets-developers-theme-their-ai-coding-desktop",
-          "accessType": "Web / Newsletter",
-          "bullets": [
-            "Latest updates from AlphaSignal AI in Business and enterprise.",
-            "Also trending: Anthropic Upgrades Claude Code Projects to Run Parallel AI Workers Hands-Free."
-          ],
-          "tags": [
-            "AI",
-            "Business"
-          ],
-          "readTime": "3 min",
-          "importance": "Medium"
-        },
-        {
-          "id": "story-2026-10-13-09",
-          "source": "The Chronicle — Jagged Intelligence",
-          "sector": "Higher education",
-          "title": "Over 60% of R1 Faculty Now Utilize AI in Federal Grant Proposal Drafting",
-          "url": "https://www.chronicle.com/newsletter/jagged-intelligence",
-          "accessType": "Web / Newsletter",
-          "bullets": [
-            "Cohort data from major research universities reveals that over 60% of tenure-track faculty regularly use AI tools to draft literature reviews and preliminary NSF/NIH grant sections.",
-            "Despite near-universal adoption across STEM disciplines, campus institutional policies remain fragmented, creating ambiguity around disclosure and scientific attribution."
-          ],
-          "tags": [
-            "Chronicle",
-            "FacultyResearch",
-            "GrantWriting",
-            "ResearchIntegrity"
-          ],
-          "readTime": "4 min",
-          "importance": "High"
-        },
-        {
-          "id": "story-2026-10-13-10",
-          "source": "EDUCAUSE Review",
-          "sector": "Higher education",
-          "title": "2026 EDUCAUSE Top 10: Cultivating the 'Human Edge of AI' Across Campus",
-          "url": "https://er.educause.edu/topics/emerging-technologies/artificial-intelligence",
-          "accessType": "Web / Journal",
-          "bullets": [
-            "The annual EDUCAUSE leadership agenda emphasizes that artificial intelligence is not a standalone solution for higher education's structural challenges.",
-            "CIOs are urged to empower students and faculty to engage critically with automated systems, reinforcing human empathy, debate, and ethical reflection as core institutional priorities."
-          ],
-          "tags": [
-            "EDUCAUSE",
-            "Top10ITIssues",
-            "HumanEdge",
-            "AcademicLeadership"
-          ],
-          "readTime": "5 min",
-          "importance": "High"
-        },
-        {
-          "id": "story-2026-10-13-11",
-          "source": "Inside Higher Ed — Artificial Intelligence",
-          "sector": "Higher education",
-          "title": "Campus AI Rollouts Outpace Institutional Protections for Student Privacy",
-          "url": "https://www.insidehighered.com/tags/artificial-intelligence",
-          "accessType": "Web / Journal",
-          "bullets": [
-            "A new higher education policy report warns that universities are rapidly deploying conversational intake bots for admissions and financial aid without adequate data privacy firewalls.",
-            "Advocates call for mandatory third-party audits of academic chatbots to ensure sensitive student financial disclosures are not retained by commercial AI vendors."
-          ],
-          "tags": [
-            "StudentPrivacy",
-            "ChatbotGovernance",
-            "AdmissionsTech",
-            "HigherEdPolicy"
-          ],
-          "readTime": "4 min",
-          "importance": "Medium"
-        },
-        {
-          "id": "story-2026-11-14-12",
-          "source": "Campus Technology",
-          "sector": "Higher education",
-          "title": "Matthew Pittinsky Returns to the Helm at Blackboard",
-          "url": "https://campustechnology.com/articles/2026/11/10/matthew-pittinsky-returns-to-the-helm-at-blackboard.aspx",
-          "accessType": "Web / RSS",
-          "bullets": [
-            "Blackboard co-founder Matthew Pittinsky has returned to the company to serve as CEO.",
-            "Also trending: Phishing Threats Reached 7.3 Billion in Q3 2026."
-          ],
-          "tags": [
-            "AI",
-            "Higher"
-          ],
-          "readTime": "3 min",
-          "importance": "Medium"
-        },
-        {
-          "id": "story-2026-11-14-13",
-          "source": "Jisc — Artificial Intelligence Community",
-          "sector": "Higher education",
-          "title": "AI in FE: AI Sparked by Curiosity",
-          "url": "https://nationalcentreforai.jiscinvolve.org/wp/2026/11/12/ai-in-fe-ai-sparked-by-curiosity/",
-          "accessType": "Web / Community",
-          "bullets": [
-            "At our October AI in FE community session, we welcomed Bryony Evett-Hackfort, Director of Teaching, Learning and Education at Coleg Sir Gâr and Coleg Ceredigion, to share how the colleges are developing AI skills and confidence among staff and learners. Her pr...",
-            "Also trending: How to introduce AI into marking and feedback."
-          ],
-          "tags": [
-            "AI",
-            "Higher"
-          ],
-          "readTime": "3 min",
-          "importance": "Medium"
-        },
-        {
-          "id": "story-2026-11-14-14",
           "source": "One Useful Thing",
           "sector": "Cross-sector",
           "title": "https://www.oneusefulthing.org/p/fable-52-and-jagged-agi https://www.oneusefulthing.org/p/fable-52-and-jagged-agi Mon, 09 Nov 2026 19:04:26 GMT Before getting started, I wanted to thank my readers for",
